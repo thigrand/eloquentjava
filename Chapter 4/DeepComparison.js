@@ -1,10 +1,17 @@
+// strasznie zamotales te funkcje. zrob ja w pelni rekursywna, zeby to zrobic musisz:
+// 1. sprawdzac czy dana wartosc jest wartoscia prosta czy obiektem
+// 2. jesli wartoscia prosta to zwracasz wynik porownania
+// 3. jezeli bedzie obiektem - porownujesz glebiej
+
 function deepEqual(value1, value2) {
 	var propNumb1 = 0, propNumb2 = 0;
 	if(value1 === value2 ) {
 		return true;
 	}
-    if( value1 == null || value2 == null || typeof(value1) !== typeof(value2))
-    	return false;
+	
+	if (value1 == null || value2 == null || typeof(value1) !== typeof(value2)) {
+		return false;
+	}
 
     for (var prop in value1) {
         propNumb1++;

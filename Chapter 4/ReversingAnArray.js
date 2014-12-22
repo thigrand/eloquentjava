@@ -6,10 +6,19 @@ function reverseArray(arr) {
 	return reversed;
 };
 function reverseArrayInPlace(array) {
-  for (var i = 0; i < array.length / 2; i++) {
-    var old = array[i];
-    array[i] = array[array.length - 1 - i];
-    array[array.length - 1 - i] = old;
-  }
+	// pamietaj, ze to co jest po lewej stronie nawiasu fora wykonuje sie tylko raz, to co w srodku tyle razy ile petla.
+	var len = array.length;
+	var endCondition = len / 2;
+	var lastIndex = len - 1;
+
+	for (var i = 0; i < endCondition; i++) {
+		var old = array[i];
+		array[i] = array[lastIndex - i];
+		array[lastIndex - i] = old;
+	}
+
 	return array;
 };
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array - przeczytaj o wszystkich metodach arraya
+// i uzyj jednej zeby zaimplementowac reverse in place w jednej linijce
